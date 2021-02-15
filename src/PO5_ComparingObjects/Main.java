@@ -19,8 +19,8 @@ public class Main {
         }
         int n = Integer.parseInt(scanner.nextLine());
         Person personForCompare = people.get(n -1);
-        people.remove(n -1);
-        int countEqual = 1;
+
+        int countEqual = 0;
 
         for (Person person : people) {
             if(personForCompare.compareTo(person) == 0){
@@ -30,7 +30,7 @@ public class Main {
         if(countEqual == 1){
             System.out.println("No matches");
         } else {
-            System.out.println(countEqual + " " + (people.size() +1 - countEqual) + " " + (people.size() + 1));
+            System.out.println(countEqual + " " + (people.size() - countEqual) + " " + (people.size()));
         }
     }
 }

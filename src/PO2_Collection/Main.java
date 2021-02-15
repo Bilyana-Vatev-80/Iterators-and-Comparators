@@ -8,32 +8,32 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        List<String> data = Arrays.stream(scanner.nextLine().split("\\s+")).skip(1)
-                .collect(Collectors.toList());
-
+        List<String>data= Arrays.stream(scanner.nextLine().split("\\s+")).skip(1).collect(Collectors.toList());
         ListyIterator listyIterator = new ListyIterator(data);
-        String command = scanner.nextLine();
-
-        while (!"END".equals(command)){
+        String command;
+        while (!"END".equals(command=scanner.nextLine())){
             switch (command){
-                case "Move":
-                    System.out.println(listyIterator.move());
-                    break;
-                case "Print":
-                    System.out.println(listyIterator.print());
-                    break;
-                case "HasNext":
+                case"HasNext":
                     System.out.println(listyIterator.iterator().hasNext());
                     break;
-                case "PrintAll":
-                    Iterator <String> iterator = listyIterator.iterator();
-                    while (iterator.hasNext()){
-                        System.out.print(iterator.next() + " ");
+                case"Move":
+                    System.out.println(listyIterator.move());
+                    break;
+                case"Print":
+                    try{
+                        listyIterator.print();
+                    }catch (IllegalStateException ex){
+                        System.out.println(ex.getMessage());
                     }
-                    System.out.println();
+                    break;
+                case"PrintAll":
+                    try{
+                        listyIterator.printAll();
+                    }catch (IllegalStateException ex){
+                        System.out.println(ex.getMessage());
+                    }
                     break;
             }
-            command = scanner.nextLine();
         }
     }
 }

@@ -29,6 +29,6 @@ public class ListyIterator {
         }
     }
     public boolean hasNext(){
-        return this.index < this.data.size() -1;
+        return this.index < this.data.size() - 1;
     }
 }

@@ -1,8 +1,6 @@
 package PO4_Froggy;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,13 +8,11 @@ public class Main {
         int [] stonesNumbers = Arrays.stream(scanner.nextLine().split(", "))
                 .mapToInt(Integer::parseInt).toArray();
 
-        String endWord = scanner.nextLine();
-
         StringBuilder sb = new StringBuilder();
 
         Lake lake = new Lake(stonesNumbers);
+        List<String> result = new ArrayList<>();
         for (Integer integer : lake) {
-           sb.append(integer).append(", ");
         }
         System.out.println(sb.toString().substring(0,sb.toString().lastIndexOf(", ")));
     }
